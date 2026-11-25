@@ -1,0 +1,528 @@
+/* ==========================================================================
+   BarberCore - estilos compartidos por todas las páginas
+   ========================================================================== */
+
+:root {
+    --oscuro: #212121;
+    --naranja: #d97706;
+    --naranja-hover: #b86404;
+    --fondo: #f4f4f4;
+    --blanco: #ffffff;
+    --texto: #212121;
+    --texto-suave: #555555;
+    --texto-claro: #d6d6d6;
+    --radio: 8px;
+    --ancho: 1280px;
+    --fuente: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --fuente-titulos: "Montserrat", var(--fuente);
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--fondo);
+    color: var(--texto);
+    font-family: var(--fuente);
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, p, ul {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid var(--naranja);
+    outline-offset: 2px;
+}
+
+.contenedor {
+    width: min(var(--ancho), 100% - 48px);
+    margin-inline: auto;
+}
+
+.solo-lectores {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* ---------- Botones ---------- */
+
+.boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 10px 28px;
+    border: 0;
+    border-radius: var(--radio);
+    background: var(--naranja);
+    color: var(--blanco);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton:hover {
+    background: var(--naranja-hover);
+}
+
+.boton-grande {
+    min-height: 56px;
+    padding-inline: 28px;
+    font-size: 1.05rem;
+}
+
+/* ---------- Menú superior ---------- */
+
+.menu {
+    background: var(--oscuro);
+    color: var(--texto-claro);
+}
+
+.menu-contenido {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    width: min(1120px, 100% - 48px);
+    min-height: 60px;
+    margin-inline: auto;
+    padding-block: 4px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--blanco);
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.logo img {
+    width: 30px;
+}
+
+.menu-navegacion {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-left: 80px;
+}
+
+.menu-enlaces {
+    display: flex;
+    gap: 28px;
+}
+
+.menu-acciones {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+}
+
+.menu a:not(.boton):hover,
+.menu a[aria-current="page"] {
+    color: var(--blanco);
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.menu a.logo:hover {
+    text-decoration: none;
+}
+
+.menu-boton {
+    display: none;
+    margin-left: auto;
+    padding: 6px 12px;
+    border: 1px solid #555;
+    border-radius: var(--radio);
+    background: transparent;
+    color: var(--blanco);
+    cursor: pointer;
+}
+
+/* ---------- Portada ---------- */
+
+.portada {
+    display: flex;
+    align-items: center;
+    min-height: 630px;
+    background:
+        linear-gradient(90deg, rgba(10, 10, 10, 0.92) 0%, rgba(10, 10, 10, 0.55) 50%, rgba(10, 10, 10, 0.15) 100%),
+        url("../img/hero.jpg") right center / cover no-repeat,
+        var(--oscuro);
+    color: var(--blanco);
+}
+
+.portada-contenido {
+    width: min(1120px, 100% - 48px);
+    margin-inline: auto;
+    padding-block: 48px;
+}
+
+.portada h1 {
+    max-width: 11em;
+    font-family: var(--fuente-titulos);
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+    line-height: 1.18;
+}
+
+.portada p {
+    margin-block: 56px 40px;
+    font-size: 1.3rem;
+}
+
+/* ---------- Barra de reserva ---------- */
+
+.reserva {
+    padding-block: 52px;
+    background: var(--oscuro);
+}
+
+.reserva-formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.25fr auto;
+    align-items: center;
+    gap: 40px;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 52px;
+    padding-inline: 14px;
+    border: 0;
+    border-radius: var(--radio);
+    background: var(--blanco);
+    color: var(--texto);
+}
+
+.campo span {
+    white-space: nowrap;
+}
+
+.campo input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: var(--texto-suave);
+}
+
+/* ---------- Secciones ---------- */
+
+.seccion {
+    padding-block: 48px;
+}
+
+.seccion:last-of-type {
+    padding-bottom: 96px;
+}
+
+.seccion-encabezado {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.seccion-encabezado h2 {
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+}
+
+.enlace-flecha {
+    font-size: 0.85rem;
+}
+
+.enlace-flecha:hover {
+    text-decoration: underline;
+}
+
+.pestanas {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.pestanas button {
+    padding: 4px 0;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    background: none;
+    color: var(--texto);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.pestanas button[aria-pressed="true"] {
+    border-bottom-color: var(--texto);
+}
+
+.rejilla {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 355px));
+    justify-content: space-evenly;
+    gap: 48px 32px;
+}
+
+/* ---------- Tarjeta de servicio o producto ---------- */
+
+.tarjeta {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--oscuro);
+    border-radius: 6px;
+}
+
+.tarjeta-imagen {
+    height: 150px;
+    background: var(--oscuro);
+}
+
+.tarjeta-cuerpo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 12px 20px 20px;
+}
+
+.tarjeta h3 {
+    font-size: 1.3rem;
+    line-height: 1.25;
+}
+
+.tarjeta-duracion {
+    align-self: flex-end;
+    min-height: 1.4em;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.tarjeta-descripcion {
+    flex: 1;
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+    line-height: 1.9;
+}
+
+.tarjeta-precio {
+    margin-block: 6px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.tarjeta .boton {
+    align-self: center;
+    width: min(220px, 100%);
+}
+
+/* ---------- Barberos ---------- */
+
+.barbero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.barbero-foto {
+    width: 260px;
+    max-width: 100%;
+    aspect-ratio: 8 / 7;
+    border-radius: 50%;
+    background: var(--oscuro);
+}
+
+.barbero h3 {
+    margin-top: 12px;
+    font-family: var(--fuente-titulos);
+    font-size: 1.3rem;
+}
+
+.barbero p {
+    margin-block: 6px 20px;
+    color: var(--texto-suave);
+}
+
+/* ---------- Aviso temporal ---------- */
+
+.aviso {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    z-index: 10;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    padding: 14px 22px;
+    transform: translateX(-50%);
+    border-left: 4px solid var(--naranja);
+    border-radius: var(--radio);
+    background: var(--oscuro);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    color: var(--blanco);
+}
+
+.aviso:empty {
+    display: none;
+}
+
+/* ---------- Pie de página ---------- */
+
+.pie {
+    padding-block: 80px 48px;
+    background: var(--oscuro);
+    color: var(--texto-claro);
+    font-family: var(--fuente-titulos);
+    font-size: 0.9rem;
+}
+
+.pie-contenido {
+    display: grid;
+    grid-template-columns: 1.8fr 1.3fr 1.1fr 1fr 1.4fr;
+    gap: 32px;
+}
+
+.pie h4 {
+    margin-bottom: 14px;
+    color: var(--blanco);
+    font-size: 1.05rem;
+}
+
+.pie li {
+    margin-bottom: 8px;
+}
+
+.pie a:hover {
+    color: var(--blanco);
+    text-decoration: underline;
+}
+
+.pie a.logo:hover {
+    text-decoration: none;
+}
+
+.pie-derechos {
+    margin-top: 16px;
+    color: var(--blanco);
+    font-size: 0.82rem;
+}
+
+/* ---------- Tabletas y celulares ---------- */
+
+@media (max-width: 960px) {
+    .menu-boton {
+        display: block;
+    }
+
+    .menu-contenido {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .menu-navegacion {
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        margin: 0;
+        padding-block: 16px;
+    }
+
+    .menu-navegacion.abierto {
+        display: flex;
+    }
+
+    .menu-enlaces {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .menu-acciones {
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .reserva-formulario {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    .pie-contenido {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .portada {
+        min-height: 480px;
+        background-position: center;
+    }
+
+    .portada p {
+        margin-block: 28px;
+        font-size: 1.1rem;
+    }
+
+    .reserva {
+        padding-block: 28px;
+    }
+
+    .reserva-formulario,
+    .pie-contenido {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

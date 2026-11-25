@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BarberCore | Inicio</title>
+    <meta name="description" content="BarberCore: reserva tu corte con tu barbero de confianza en segundos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+</head>
+<body>
+    <header id="encabezado"></header>
+
+    <main>
+        <section class="portada" aria-labelledby="titulo-portada">
+            <div class="portada-contenido">
+                <h1 id="titulo-portada">Estilo preciso, reserva sin esperas</h1>
+                <p>Agenda en 30 segundos.</p>
+                <a class="boton boton-grande" href="barberos.html">Agendar con mi Barbero</a>
+            </div>
+        </section>
+
+        <section class="reserva" id="reservar" aria-label="Reservar una cita">
+            <!-- Más adelante este formulario enviará: idBarbero, idServicio y fechaHoraInicio -->
+            <form class="contenedor reserva-formulario" id="form-reserva">
+                <label class="solo-lectores" for="reserva-barbero">Barbero</label>
+                <select class="campo" id="reserva-barbero" name="idBarbero">
+                    <option value="">Elegir Barbero (cualquiera)</option>
+                </select>
+
+                <label class="solo-lectores" for="reserva-servicio">Servicio</label>
+                <select class="campo" id="reserva-servicio" name="idServicio" required>
+                    <option value="">Servicio</option>
+                </select>
+
+                <label class="campo" for="reserva-fecha">
+                    <span class="solo-lectores">Fecha y Hora</span>
+                    <input type="datetime-local" id="reserva-fecha" name="fechaHoraInicio" required>
+                </label>
+
+                <button type="submit" class="boton boton-grande">Reservar Ahora <span aria-hidden="true">→</span></button>
+            </form>
+        </section>
+
+        <section class="seccion" aria-labelledby="titulo-catalogo">
+            <div class="contenedor">
+                <div class="seccion-encabezado">
+                    <h2 id="titulo-catalogo">Nuestro Catálogo</h2>
+                    <a class="enlace-flecha" id="enlace-catalogo" href="servicios.html">Explorar Todo el Catálogo →</a>
+                </div>
+                <div class="pestanas" role="group" aria-label="Tipo de catálogo">
+                    <button type="button" data-tipo="SERVICIO_CORTE" aria-pressed="true">Servicios</button>
+                    <button type="button" data-tipo="ARTICULO_RETAIL" aria-pressed="false">Productos</button>
+                </div>
+                <div class="rejilla" id="lista-catalogo" aria-live="polite"></div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="titulo-barberos">
+            <div class="contenedor">
+                <div class="seccion-encabezado">
+                    <h2 id="titulo-barberos">Conoce Nuestros Barberos</h2>
+                    <a class="enlace-flecha" href="barberos.html">Conocer Todos los Barberos →</a>
+                </div>
+                <div class="rejilla" id="lista-barberos"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="pie"></footer>
+    <div class="aviso" id="aviso" role="status"></div>
+
+    <script src="js/datos.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/componentes.js"></script>
+    <script src="js/inicio.js"></script>
+</body>
+</html>
