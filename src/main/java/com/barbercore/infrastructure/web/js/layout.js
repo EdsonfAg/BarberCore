@@ -16,7 +16,7 @@
 
     const logo = `
         <a class="logo" href="index.html">
-            <img src="img/logo.svg" alt="" width="30" height="32">
+            <img src="../img/logo.svg" alt="" width="30" height="32">
             <span>BarberCore</span>
         </a>`;
 
