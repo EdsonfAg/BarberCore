@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BarberCore | Regístrate</title>
+    <meta name="description" content="Crea tu cuenta en BarberCore.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+</head>
+<body>
+    <header id="encabezado"></header>
+
+    <main class="acceso">
+        <h1>Regístrate</h1>
+
+        <!-- Más adelante enviará: nombre, email y password (Usuario con rol CLIENTE) -->
+        <form class="formulario" data-formulario="registro" novalidate>
+            <label for="registro-nombre">Nombre Completo</label>
+            <input type="text" id="registro-nombre" name="nombre" placeholder="i.e. John Doe" autocomplete="name" required>
+
+            <label for="registro-email">Correo</label>
+            <input type="email" id="registro-email" name="email" placeholder="i.e. john@mail.com" autocomplete="email" required>
+
+            <label for="registro-password">Contraseña</label>
+            <input type="password" id="registro-password" name="password" placeholder="Mínimo 8 caracteres"
+                   autocomplete="new-password" minlength="8" required>
+
+            <label for="registro-confirmar">Confirmar Contraseña</label>
+            <input type="password" id="registro-confirmar" name="confirmarPassword" placeholder="••••••••"
+                   autocomplete="new-password" required>
+
+            <label class="casilla">
+                <input type="checkbox" name="aceptaTerminos" required>
+                <span>Acepto los <a class="enlace-acento" href="#">Términos y Condiciones</a></span>
+            </label>
+
+            <p class="error" role="alert"></p>
+            <button type="submit" class="boton">Crear una Cuenta</button>
+        </form>
+
+        <p class="acceso-pie">¿Ya tienes una cuenta? <a href="login.html">Inicia Sesión</a></p>
+    </main>
+
+    <footer id="pie"></footer>
+    <div class="aviso" id="aviso" role="status"></div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/componentes.js"></script>
+    <script src="js/acceso.js"></script>
+</body>
+</html>

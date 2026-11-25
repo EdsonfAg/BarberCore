@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BarberCore | Servicios</title>
+    <meta name="description" content="Servicios y paquetes de BarberCore: cortes, barba y tratamientos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+</head>
+<body>
+    <header id="encabezado"></header>
+
+    <main>
+        <section class="banner">
+            <div class="contenedor">
+                <h1>Nuestros Servicios</h1>
+                <p>Selecciona a tu especialista de confianza y elige tu horario.</p>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="titulo-servicios">
+            <div class="contenedor">
+                <h2 class="titulo-seccion" id="titulo-servicios">Servicios</h2>
+                <div class="rejilla" id="lista-servicios"></div>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="titulo-paquetes">
+            <div class="contenedor">
+                <h2 class="titulo-seccion" id="titulo-paquetes">Paquetes</h2>
+                <div class="rejilla" id="lista-paquetes"></div>
+                <p class="nota">Los precios pueden variar sin previo aviso · Para información actualizada consulta directamente en tu sucursal</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="pie"></footer>
+    <div class="aviso" id="aviso" role="status"></div>
+
+    <script src="js/datos.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/componentes.js"></script>
+    <script src="js/catalogo.js"></script>
+</body>
+</html>

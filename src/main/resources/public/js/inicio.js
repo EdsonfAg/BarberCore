@@ -1,5 +1,6 @@
 /*
  * Página de inicio: llena la barra de reserva, el catálogo y los barberos.
+ * Si la dirección trae ?servicio=, ?barbero= u ?hora=, la barra se rellena sola.
  * Todavía no envía nada al sistema: solo muestra un aviso.
  */
 (async function () {
@@ -24,9 +25,38 @@
     selectServicio.insertAdjacentHTML("beforeend", servicios
         .map((s) => `<option value="${s.idItem}">${escapar(s.nombre)}</option>`).join(""));
 
+    // Fecha local en el formato de <input type="datetime-local">: "2026-11-25T16:00"
+    function formatoLocal(fecha) {
+        const copia = new Date(fecha);
+        copia.setMinutes(copia.getMinutes() - copia.getTimezoneOffset());
+        return copia.toISOString().slice(0, 16);
+    }
+
     const ahora = new Date();
-    ahora.setMinutes(ahora.getMinutes() - ahora.getTimezoneOffset());
-    campoFecha.min = ahora.toISOString().slice(0, 16);
+    campoFecha.min = formatoLocal(ahora);
+
+    // ---------- Datos que llegan desde otras páginas ----------
+    const parametros = new URLSearchParams(location.search);
+    if (parametros.has("servicio")) {
+        selectServicio.value = parametros.get("servicio");
+    }
+    if (parametros.has("barbero")) {
+        selectBarbero.value = parametros.get("barbero");
+    }
+    const hora = parametros.get("hora");
+    if (/^\d{2}:\d{2}$/.test(hora || "")) {
+        // Próxima vez que llegue esa hora: hoy si aún no pasa, si no mañana.
+        const [h, m] = hora.split(":").map(Number);
+        const fecha = new Date(ahora);
+        fecha.setHours(h, m, 0, 0);
+        if (fecha <= ahora) {
+            fecha.setDate(fecha.getDate() + 1);
+        }
+        campoFecha.value = formatoLocal(fecha);
+    }
+    if (parametros.toString()) {
+        (selectServicio.value ? campoFecha : selectServicio).focus({ preventScroll: true });
+    }
 
     document.getElementById("form-reserva").addEventListener("submit", (evento) => {
         evento.preventDefault();
@@ -48,23 +78,6 @@
     mostrarCatalogo("SERVICIO_CORTE");
 
     // ---------- Barberos ----------
-    document.getElementById("lista-barberos").innerHTML = barberos.slice(0, 3).map(tarjetaBarbero).join("");
-
-    // ---------- Botones de las tarjetas ----------
-    document.querySelector("main").addEventListener("click", (evento) => {
-        const boton = evento.target.closest("[data-accion]");
-        if (!boton) {
-            return;
-        }
-        if (boton.dataset.accion === "reservar") {
-            selectServicio.value = boton.dataset.idItem;
-        } else if (boton.dataset.accion === "agendar-barbero") {
-            selectBarbero.value = boton.dataset.idBarbero;
-        } else {
-            mostrarAviso("El apartado de productos estará disponible cuando la página se conecte al sistema.");
-            return;
-        }
-        document.getElementById("reservar").scrollIntoView();
-        campoFecha.focus({ preventScroll: true });
-    });
+    document.getElementById("lista-barberos").innerHTML =
+        barberos.slice(0, 3).map((b) => tarjetaBarbero(b, false)).join("");
 })();

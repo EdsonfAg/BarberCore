@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BarberCore | Productos</title>
+    <meta name="description" content="Productos de cuidado personal de BarberCore. Apártalos en línea y recógelos en sucursal.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+</head>
+<body>
+    <header id="encabezado"></header>
+
+    <main>
+        <section class="banner">
+            <div class="contenedor">
+                <h1>Productos de Cuidado Personal</h1>
+                <p>Compra sin envíos: aparta tus productos en línea y recógelos hoy mismo en sucursal.</p>
+            </div>
+        </section>
+
+        <section class="seccion" aria-labelledby="titulo-productos">
+            <div class="contenedor">
+                <h2 class="titulo-seccion" id="titulo-productos">Conoce todos nuestros Productos</h2>
+
+                <label class="buscador" for="buscar-producto">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>
+                    </svg>
+                    <span class="solo-lectores">Buscar producto</span>
+                    <input type="search" id="buscar-producto" placeholder="Buscar cera, aceite, tónico..." autocomplete="off">
+                </label>
+
+                <div class="rejilla" id="lista-productos" aria-live="polite"></div>
+                <p class="nota">Los precios pueden variar sin previo aviso · Para información actualizada consulta directamente en tu sucursal</p>
+            </div>
+        </section>
+    </main>
+
+    <footer id="pie"></footer>
+    <div class="aviso" id="aviso" role="status"></div>
+
+    <script src="js/datos.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/componentes.js"></script>
+    <script src="js/catalogo.js"></script>
+</body>
+</html>

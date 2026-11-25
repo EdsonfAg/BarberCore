@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BarberCore | Restablecer Contraseña</title>
+    <meta name="description" content="Recupera el acceso a tu cuenta de BarberCore.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+</head>
+<body>
+    <header id="encabezado"></header>
+
+    <main class="acceso">
+        <h1>Restablecer Contraseña</h1>
+
+        <!-- Más adelante enviará: email -->
+        <form class="formulario" data-formulario="restablecer" novalidate>
+            <label for="restablecer-email">Correo Electrónico</label>
+            <input type="email" id="restablecer-email" name="email" placeholder="Introduce tu correo" autocomplete="email" required>
+
+            <p class="error" role="alert"></p>
+            <button type="submit" class="boton">Enviar enlace de Restablecimiento</button>
+        </form>
+
+        <p class="acceso-pie">¿Recuerdas tu contraseña? <a href="login.html">Inicia Sesión Ahora</a></p>
+    </main>
+
+    <footer id="pie"></footer>
+    <div class="aviso" id="aviso" role="status"></div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/componentes.js"></script>
+    <script src="js/acceso.js"></script>
+</body>
+</html>
